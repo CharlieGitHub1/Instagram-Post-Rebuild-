@@ -1,26 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
+import { wait } from '@testing-library/user-event/dist/utils';
 import './App.css';
+import { useQuery } from '@tanstack/react-query';
+import IGPost from './components/post/Post';
+import data from './data/data.json';
 
-function App() {
+const App = () => {
+  const post = data;
+  const queryPost = useQuery({
+    queryKey: ['post'],
+    queryFn: () => wait(2000).then(() => [...post['posts']]),
+  });
+
+  if (queryPost.isLoading) {
+    return <>Loading...</>;
+  }
+  if (queryPost.isError) {
+    return (
+      <pre>
+        Error! Something went wrong: {JSON.stringify(queryPost.isError)}
+      </pre>
+    );
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h3>Query Post App</h3>
+        <p>TanQuery</p>
       </header>
+      <div className="App-content">
+        <div className="App-content__list">
+          {queryPost?.data?.map((post) => {
+            return <IGPost key={post.id} postData={post} />;
+          })}
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default App;

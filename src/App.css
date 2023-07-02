@@ -1,5 +1,141 @@
 .App {
   text-align: center;
+  background-color: #282c34;
+  color: #eeee;
+
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 1rem 0;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-content {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #eeee;
+}
+
+.App-content__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.Post-item-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #eeee;
+}
+.Post-list-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  margin: 1rem;
+  min-height: 10rem;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.App-content__list__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  margin: 1rem;
+  min-height: 10rem;
+
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  }
+}
+.App-card-paragraph-text {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #eeee;
+}
+.App-card-text {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #eeee;
+}
+.App-section {
+  margin: 2rem 0;
+}
+
+.App-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* padding: 1rem 3rem; */
+  margin: 1rem 0;
+  min-height: 10rem;
+  border-radius: 0.5rem;
+
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: translateY(-0.3rem);
+    border: 1px solid #eee;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
+}
+
+.App-image {
+  display: block;
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  object-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+}
+
+.App-button {
+  display: inline-block;
+  padding: 0.5rem 3rem;
+  margin: 1rem;
+  border-radius: 0.3rem;
+  border: 1px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: translateY(-0.1rem);
+    background-color: #000;
+    color: #fff;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
 }
 
 .App-logo {
@@ -15,11 +151,12 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 5vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 0 1rem;
   font-size: calc(10px + 2vmin);
   color: white;
 }
